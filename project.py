@@ -20,7 +20,7 @@ try:
     text=f"{message}"
     server=smtplib.SMTP("smtp.gmail.com",587)
     server.starttls()
-    server.login(email,"rlfv btzv xsio xqdq")
+    server.login(email,"**** **** **** ****")
 except:
      print("please check if your system is connected to internet")    
 
