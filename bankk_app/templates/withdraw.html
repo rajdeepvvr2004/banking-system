@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="text-center mb-4">Withdraw Money</h4>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount (Rs)</label>
+                        <input type="number" class="form-control" name="amount" id="amount" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Withdraw</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

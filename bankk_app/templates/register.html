@@ -1,0 +1,57 @@
+{% comment %} <h1>Register</h1>
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username" required><br><br>
+    <input type="password" name="password" placeholder="Password" required><br><br>
+    <input type="password" name="confirm_password" placeholder="Confirm Password" required><br><br>
+    <button type="submit">Register</button>
+</form>
+<p>Already have an account? <a href="/login/">Login here</a></p> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #f0f0f0;">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h2 class="text-center mb-4">Register</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
+                </div>
+                {% comment %} <div class="form-group">
+                    <input type="number" name="balance" class="form-control" placeholder="balance" required>
+                </div> {% endcomment %}
+                <div>
+                <select class="form-control" id="account_type" name="account_type" required >
+                <option value="savings">Savings Account</option>
+                <option value="current">Current Account</option>
+                <option value="fd">Fixed Deposit Account</option>
+                </select>
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
